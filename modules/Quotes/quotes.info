@@ -1,0 +1,5 @@
+; $id$
+name= Favorite Quotes
+description="allows users to view my favorite quotes"
+pacakge="Favorites"
+core = 7.x

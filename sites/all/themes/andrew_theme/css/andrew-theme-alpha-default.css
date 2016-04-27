@@ -1,0 +1,74 @@
+/* This file will hold styles for all layouts using the alpha grid (i.e. not the mobile layout). */
+body{
+	color: #333;
+	font-size: 75%;
+}
+
+
+a,
+a:link,
+a:vistied{
+	color:#26A6C5;
+}
+
+a:hover,
+a:focus,
+a:active{
+	color:#26A6C5;	
+}
+.header_group{
+	background-color:33BEDE;
+	border-bottom: 3px solid # 1BA0CC;
+	Color:#fff;
+}
+.header-group a{
+	color:#fff;
+}
+.footer{
+background-color: #ACACAC;
+border-top: 5px solid #D6D6D6;
+color:#fff;
+float:leftpadding-top: 2em;
+}
+
+.footer a,
+.footer a:vistied{
+color:#fff;
+}
+
+.region-sidebar-first .block .inner{
+background-color: #fff;
+boarder: 1px solid #DB610C;
+border-radius: 8px;
+-moz-border-radius:8px;
+-webkit-border-radius: 8px;
+}
+
+. region-sidebar-first h2{
+background-color: #DB610C;
+border-radius: 6px;
+color: #fff;
+font-size: 90%;
+margin: 2px;
+padding: 2px 8px;
+-moz-border-radius:6px;
+-webkit-border-radius: 6px;
+}
+
+.region-sidebar-first blovk .inner .content{
+margin-top:2em;	
+}
+
+.region-sidebar-second . block h2{
+background-color: #1BA0CC;
+border-top-right-radius: 8px;
+border-top-left-radius: 8px;
+color: #fff;
+font-family:'Helvetica neue',Helvetica,arial, sans-serif;
+font-size: 15px;
+-moz-border-top-left-radius:8px;
+-webkit-border-radius-topleft: 8px;
+-moz-border-top-right-radius:8px;
+-webkit-border-radius-topright: 8px;
+
+}

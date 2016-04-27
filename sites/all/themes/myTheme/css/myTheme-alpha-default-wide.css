@@ -1,0 +1,21 @@
+/* This file will hold styles that are loaded using the same media query as the wide grid. */
+
+.branding_data{
+	background-image:url("../img/space_banner.jpeg");
+	background-color:white;
+	background-repeat: no-repeat; 
+	background-position: 180px;	
+}
+
+#region-sidebar-first{
+	border: 3px teal solid;
+
+}
+html { 
+    background: url("../img/black_hole_milkyway/jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+        
