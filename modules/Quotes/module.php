@@ -4,7 +4,6 @@ function quotes_menu($may_cache){
 	$items=array();
 		//if($may_cache){
 			$items[]=array(
-
 				'path'=> 'admin/settings/favorite/quotes',
 				'title'=> t("Manage Favorite Quotes"),
 				'description' => t("Add more favorite quotes"),
@@ -12,9 +11,9 @@ function quotes_menu($may_cache){
 				'callback arguments' =>'quotes_settings',
 				'access' => user_access('access administration pages')
 			);
-		//}
+	//}
 
-	return $items;
+	return $items
 }
 
 function quotes_settings(){
@@ -42,5 +41,6 @@ function quotes_get_form($form_id, $form_values){
 	drupal_set_message(t("Submitted!!"));
 
 }
+
 
 ?>

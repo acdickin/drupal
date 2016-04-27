@@ -1,0 +1,74 @@
+<?php
+//hook_int
+function hello_init(){		
+	//drupal_set_message("hello");
+}
+function hello_menu(){
+	$items=array();
+	$items['hellopage']=array(
+		
+		'title'=>'My Hello page',
+		'description' => 'Hellos users',
+		'page callback'=> 'drupal_get_form', // used during form api 
+		'page arguments'=>array('hello_showHelloForm'),
+		'access callback'=> 'user_access',
+		'access arguments'=> array('access content'),
+		'type'=>MENU_NORMAL_ITEM
+	);
+	$items['gethello']=array(
+		//'page callback'=> 'drupal_get_form',
+		//'page arguments'=>array('hello_ajaxCallHandler'),
+		'page callback'=> 'hello_ajaxCallHandler',
+		'access callback'=> 'user_access',
+		'access arguments'=> array('access content'),
+		'type'=>MENU_CALLBACK
+	);
+return $items;
+}
+
+function hello_ajaxCallHandler(){
+	echo "hello".$_Get['name']."!";
+}
+
+
+function hello_showHelloForm(){
+	$form=array();
+	$form['name']=array(
+		'#type'=>'textfield',
+		'#title'=>'Enter your name'
+
+	);
+
+	$form['submit']=array(
+		'#type'=>'submit',
+		'#title'=>'Submit'
+	);
+
+	$form['#submit'][]='hello_showHelloForm_submit';
+	//without using form api
+	$form['#suffix']='<input type="button" id="submitAjaxButton" value="Submit with Ajax"> <br/>
+	<div id="msg-display-area"></div>';
+
+	drupal_add_js(drupal_get_path('module','hello')."/hello.js");
+
+
+	return $form;
+}
+
+
+
+
+
+function hello_showHelloForm_submit($form, &$form_state){
+	if($form_state['values']['name']==""){
+		form_set_error('name','name can not be empty');
+	}
+	else{
+		drupal_set_message( "I am a dummy message and my name is ". $form_state['values']['name']."!");
+
+	}	
+//
+
+}
+
+?>
