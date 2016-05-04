@@ -1,0 +1,4 @@
+core="7.x"
+description ="Adds Javascript comfirmation form to node add page."
+name ="JS Confirm"
+package = 'Andrew\'s Modules'

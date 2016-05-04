@@ -1,0 +1,69 @@
+<?php
+/**
+* @file
+* myblock_module
+*/
+
+/**
+* Implements hook_permission
+*/
+function myblock_permission(){
+return array(
+	'access mypage'=> array(
+		'title'=>t('Access My Page'),
+		'description'=> t('Access My Page on my site.'),
+		),
+	);
+}
+
+/**
+* Implements hooks_menu(),
+*/
+function myblock_menu(){
+	$items=array();
+	$items['mypage']=array(
+		'title' => 'My Page',
+		'description' => 'Hellos users',
+		'page callback' => 'myblock_mypage',
+		'access arguments' =>array('access content'),
+		'type'=>MENU_NORMAL_ITEM
+		);
+	return $items;
+}
+
+/**
+* Implements Callback function
+*/
+function myblock_mypage(){
+	return "<h1><strong> This is a test</strong></h1>";
+}
+
+
+/**
+* Implements Hook_menu
+*/
+
+function myblock_block_info(){
+	$blocks['myblock']=array(
+	'info' => t("My custom block"),
+	);
+	return $blocks;
+
+}
+
+
+function myblock_block_view($delta = '') {
+  // This example is adapted from node.module.
+  $block = array();
+
+  switch ($delta) {
+    case 'myblock':
+      $block['subject'] = t('This is my Custom Block');
+      $block['content'] = "<h1><Strong> IT WORKED</Strong>. I'm so glad</h1>";
+      break;
+  }
+  return $block;
+}
+
+
+?>

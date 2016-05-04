@@ -1,0 +1,114 @@
+<?php
+// Learning Drupal Moduals =<3
+/**
+* Implements Hook_permissions()
+*/
+function quotes_permission(){
+	return array(
+		'access quotes'=> array(
+			'title' => t('access quotes'),
+			'description' => t('Access form for quotes'),
+		),
+	);
+}
+function quotes_menu(){
+	$items = array();
+	$items['quotes'] = array(
+		'title' => 'Quotes form',
+		'type'=> MENU_NORMAL_ITEM,
+		'access arguments' => array('access quotes'),
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('quotes_form'),
+	);
+
+	return $items;
+}
+
+/**
+* Quotes Form
+*/
+
+function quotes_form($form, &$form_state){
+	$form['quote'] = array(
+			'#type' => 'textarea',
+			'#title' => t('Enter a quote'),
+			'#description' => t('Qualified quotes are only those that are your favorite'),
+	);
+	$form['author'] = array(
+			'#type'=>'textfield',
+			'#title' => t("Author"),
+			
+	);
+	$form['submit'] = array(
+		'#type'=>'submit',
+		'#value'=>t('Add Quote'),
+	);
+
+	return $form;
+}
+
+function quotes_form_submit($form, &$form_state){
+	$pid=db_insert('quotes')->fields(array(
+	 	'quote' => $form_state['values']['quote'], 
+	 	'author' => $form_state['values']['author'] ,
+
+	) )->execute();
+	drupal_set_message(t("Submitted!!"));
+}
+/**
+*View the form submissions
+*/
+function quotes_submissions(){
+	$results= db_query('SELECT * FROM quote');
+
+	$header = array(t('ID'),t('quote'),t('author') );
+	$rows = array();
+
+	foreach($results AS $result){
+		$rows[]=array(
+			$result->qid,
+			$result->quote,
+			$result->author,
+		);
+	}
+return theme ('table', array('header'=>$header, 'rows'=>$rows));
+}
+/**
+* Validation handler for the form_example_form.
+*/
+
+function quotes_form_validate($form, &$form_state){
+
+//print('<pre>'.print_r($form_state['values'],1).'</pre>');die();
+
+}
+
+function quotes_block_info(){
+	$blocks['quotes']=array(
+		'info'=> t('Favorite Quotes')
+		);
+	return $blocks;
+}
+
+function quotes_block_view($delta = '') {
+$block = array();
+  switch($delta){
+  	case 'quotes';
+  		$res=db_query('select * from quotes order by rand() LIMIT 1');
+	
+		if ($res){
+			while($row=$res -> fetchAssoc()){
+
+		$QA=$row['author'].'-"'.$row['quote'].'"';
+
+  		
+  		$block['subject']=t('Insperational quote');
+  		$block['content']=$QA;
+  			}
+  		}
+  }
+  return $block;
+}
+
+
+?>

@@ -1,4 +1,4 @@
 name= Hello
 core = 7.x
 description="Hellos users"
-
+package = 'Andrew\'s Modules'

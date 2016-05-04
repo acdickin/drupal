@@ -1,0 +1,4 @@
+name= 'Image Page'
+description= 'Adding Images to a page'
+package = 'Andrew\'s Modules'
+core =7.x

@@ -1,0 +1,26 @@
+<?php
+
+/**
+*
+*
+*
+*
+*/
+
+/**
+ * Implements hook_init().
+ */
+function js_confirm_init() {
+  if (current_path() == 'node/add/article') {
+    drupal_add_js("jQuery(document).ready(function () {
+      jQuery('.form-submit').click(function(e) {
+        window.form_submit = true;
+      });
+      jQuery(window).bind('beforeunload', function() {
+        if (!window.form_submit) {
+          return 'You are currently creating an article, are you sure you want to leave? Any unsaved changes will be lost!';
+        }
+      });
+    });", 'inline');
+  }
+}

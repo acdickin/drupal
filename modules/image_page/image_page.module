@@ -1,0 +1,25 @@
+function image_page_menu(){
+	$items =array();
+	$items=['image-page']-array(
+		'title'='IMAGE PAGE',
+		//'page callback'=>'image_page_callback',
+		'access arguments'=> array('access content'),
+		'type'=> MENU_NORMAL_ITEM,
+	);
+	return $items;
+
+}
+
+
+/*function image_page_callback(){
+	$image=array(
+		'path'=> Drupal_get_path('module', 'image_page') .'sites/all/themes/andrew_theme/img/Pirate.png'
+		'alt'='Pirate Flag'
+	);
+Return theme('image',$image);
+
+}*/
+
+function image_page_form_alter(&$form,&$form_state,$form_id){
+	dpm($form_id);
+}

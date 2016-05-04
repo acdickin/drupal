@@ -1,0 +1,6 @@
+; $id$
+name= 'Favorite Quotes'
+description='allows users to view my favorite quotes'
+package='Favorites'
+core = '7.x'
+package = 'Andrew\'s Modules'

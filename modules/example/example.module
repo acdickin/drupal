@@ -1,0 +1,41 @@
+<?php
+/**
+*Implements hook_menu()
+*/
+function example_menu() {
+  $items['page-html'] = array(
+    'title' => 'My page with HTML-style function',
+    'page callback' => 'mymodule_html_page',
+    'access callback' => TRUE,
+  );
+
+  $items['page-render'] = array(
+    'title' => 'My page with render array function',
+    'page callback' => 'mymodule_ra_page',
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
+// Previous method (still works) of generating a page by returning HTML
+function example_html_page() {
+  $output = 'A paragraph about some stuff...';
+  $output .= '<ul><li>first item</li> <li>itemsecond item</li> <li>itemthird item</li></ul> ';
+  return $output;
+}
+
+// New method of generating the render array and returning that
+function mymodule_ra_page() {
+  $output =  array(
+    'first_para' => array(
+      '#type' => 'markup',
+      '#markup' => 'A paragraph about some stuff...',
+    ),
+    'second_para' => array(
+      '#items' => array('first item', 'second item', 'third item'),
+      '#theme' => 'item_list',
+    ),
+  );
+  return $output;
+}

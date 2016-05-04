@@ -1,0 +1,5 @@
+name = "example"
+description="example for render arrays"
+core = "7.x"
+version = "7.x-1.0"
+package = 'Andrew\'s Modules'
