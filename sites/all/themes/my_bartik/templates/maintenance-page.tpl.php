@@ -39,28 +39,4 @@
             </div>
           <?php endif; ?>
           <?php if ($site_slogan): ?>
-            <div id="site-slogan"<?php if ($hide_site_slogan) { print ' class="element-invisible"'; } ?>>
-              <?php print $site_slogan; ?>
-            </div>
-          <?php endif; ?>
-        </div> <!-- /#name-and-slogan -->
-      <?php endif; ?>
-    </div></div> <!-- /.section, /#header -->
-
-    <div id="main-wrapper"><div id="main" class="clearfix">
-      <div id="content" class="column"><div class="section">
-        <a id="main-content"></a>
-        <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
-        <?php print $content; ?>
-        <?php if ($messages): ?>
-          <div id="messages"><div class="section clearfix">
-            <?php print $messages; ?>
-          </div></div> <!-- /.section, /#messages -->
-        <?php endif; ?>
-      </div></div> <!-- /.section, /#content -->
-    </div></div> <!-- /#main, /#main-wrapper -->
-
-  </div></div> <!-- /#page, /#page-wrapper -->
-
-</body>
-</html>
+            <div id="site-slogan"<?php if ($hide_site_slogan) 
