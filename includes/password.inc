@@ -1,5 +1,7 @@
 <?php
-
+/**
+**random stuff
+**/
 /**
  * @file
  * Secure password hashing functions for user authentication.
