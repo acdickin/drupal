@@ -1,8 +1,4 @@
 <?php
-/**
-**For test purposes
-**/
-
 
 /**
  * @file
